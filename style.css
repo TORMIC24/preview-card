@@ -2,13 +2,16 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
 }
 
 :root {
   --clr-accent-lila: darkslateblue;
-  --ctr-accent-orange: darkorange;
-  --ctr-accent-blue: deepskyblue;
+  --clr-accent-orange: darkorange;
+  --clr-accent-blue: deepskyblue;
   --clr-white: white;
+  --clr-grey: grey;
+  --clr-font: black;
 
   --s-base: 1rem;
   --s-border: 0.125rem;
@@ -21,17 +24,43 @@ html {
 }
 
 body {
-  margin: 2rem;
+  margin-inline: auto;
+  width: auto;
+}
+
+header > h1 {
+  text-align: center;
 }
 
 .card-main {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+
+@media screen and (max-width: 930px) {
+  .card-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cards {
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .cards {
+    max-width: 360px;
+  }
+  body {
+    margin-left: 1.5rem;
+  }
 }
 
 .cards {
-  border: 0.125rem solid black;
-  max-width: 400px;
+  border: 0.125rem solid var(--clr-font);
+  width: 400px;
   border-radius: 0.5rem;
   padding: 1.2rem;
   line-height: 1.6;
@@ -44,7 +73,7 @@ body {
 }
 
 .card-right {
-  box-shadow: 0.6rem 0.6rem var(--ctr-accent-orange);
+  box-shadow: 0.6rem 0.6rem var(--clr-accent-orange);
 }
 
 .card-img {
@@ -65,7 +94,7 @@ body {
 }
 
 .card-right .user-img {
-  border: 0.15rem solid var(--ctr-accent-orange);
+  border: 0.15rem solid var(--clr-accent-orange);
 }
 
 .card-short-information {
@@ -73,19 +102,21 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: grey;
+  color: var(--clr-grey);
   font-size: 0.95rem;
   padding: 0.4rem 0;
 }
 
 .card-tag-section {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: var(--ctr-accent-blue);
+  /* flex-basis: max-content; */
+  background-color: var(--clr-accent-blue);
   border-radius: 3.2rem;
-  width: 4.7rem;
-  height: 1.7rem;
+  padding-block: 0.2rem;
+  padding-inline: 0.7rem;
   font-size: 0.9rem;
   margin-right: 1rem;
 }
@@ -96,7 +127,11 @@ body {
 
 .card-text {
   margin-top: 0;
-  font-size: 1rem;
+  font-size: 1.1rem;
+}
+
+.card-text > p {
+  margin-bottom: 1rem;
 }
 
 .card-hyper {
@@ -111,12 +146,11 @@ body {
 }
 
 .card-right .card-hyper {
-  background-color: var(--ctr-accent-orange);
+  background-color: var(--clr-accent-orange);
 }
 
 .card-short-info-align {
   display: inline-block;
-  /* vertical-align: middle; */
   align-items: center;
 }
 
